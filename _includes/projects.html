@@ -25,3 +25,85 @@
   {% endunless %}
   {% endfor %}
 </div>
+
+
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Haskell</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories pushed recently</p>
+<div class="d-sm-flex flex-wrap gutter-condensed mb-4">
+  <!-- TODO: Hard code: language-->
+  {% assign filtered_repos = site.github.public_repositories | where: 'language', 'Haskell' | sort: 'stargazers_count', 'last' | reverse %}
+
+  <!-- TODO: Hard code: limit-->
+  {% for repository in filtered_repos | limit: 6 %}
+  {% unless site.projects.exclude.projects contains repository.name %}
+    <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+      {% include repo-card.html %}
+    </div>
+  {% endunless %}
+  {% endfor %}
+</div>
+
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Scala</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories pushed recently</p>
+<div class="d-sm-flex flex-wrap gutter-condensed mb-4">
+  <!-- TODO: Hard code: language-->
+  {% assign filtered_repos = site.github.public_repositories | where: 'language', 'Scala' | sort: 'stargazers_count', 'last' | reverse %}
+
+  <!-- TODO: Hard code: limit-->
+  {% for repository in filtered_repos | limit: 8 %}
+  {% unless site.projects.exclude.projects contains repository.name %}
+    <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+      {% include repo-card.html %}
+    </div>
+  {% endunless %}
+  {% endfor %}
+</div>
+
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Docker</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories pushed recently</p>
+<div class="d-sm-flex flex-wrap gutter-condensed mb-4">
+  <!-- TODO: Hard code: language-->
+  {% assign filtered_repos = site.github.public_repositories | where: 'language', 'Dockerfile' | sort: 'stargazers_count', 'last' | reverse %}
+
+  <!-- TODO: Hard code: limit-->
+  {% for repository in filtered_repos | limit: 6 %}
+  {% unless site.projects.exclude.projects contains repository.name %}
+    <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+      {% include repo-card.html %}
+    </div>
+  {% endunless %}
+  {% endfor %}
+</div>
+
+
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Go</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories pushed recently</p>
+<div class="d-sm-flex flex-wrap gutter-condensed mb-4">
+  <!-- TODO: Hard code: language-->
+  {% assign filtered_repos = site.github.public_repositories | where: 'language', 'Go' | sort: 'stargazers_count', 'last' | reverse %}
+
+  <!-- TODO: Hard code: limit-->
+  {% for repository in filtered_repos | limit: 6 %}
+  {% unless site.projects.exclude.projects contains repository.name %}
+    <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+      {% include repo-card.html %}
+    </div>
+  {% endunless %}
+  {% endfor %}
+</div>
+
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Python</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories pushed recently</p>
+<div class="d-sm-flex flex-wrap gutter-condensed mb-4">
+  <!-- TODO: Hard code: language-->
+  {% assign filtered_repos = site.github.public_repositories | where: 'language', 'Python' | sort: 'stargazers_count', 'last' | reverse %}
+
+  <!-- TODO: Hard code: limit-->
+  {% for repository in filtered_repos | limit: 6 %}
+  {% unless site.projects.exclude.projects contains repository.name %}
+    <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+      {% include repo-card.html %}
+    </div>
+  {% endunless %}
+  {% endfor %}
+</div>
