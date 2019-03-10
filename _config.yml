@@ -24,8 +24,6 @@ projects:
 
   # (NOTE: "limit" is no longer used)
   # limit: 9
-  stars_limit: 12
-  pushed_limit: 6
 
   exclude:
     forks: true
