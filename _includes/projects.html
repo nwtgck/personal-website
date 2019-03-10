@@ -1,23 +1,27 @@
-<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>My Projects</h2>
-<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories that I've built.</p>
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Popular Projects</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">My popular GitHub repositories</p>
 <div class="d-sm-flex flex-wrap gutter-condensed mb-4">
-  {% if site.projects.sort_by == 'stars' %}
-    {% assign sort_order = 'stargazers_count', 'last' %}
-  {% else %}
-    {% assign sort_order = 'pushed_at' %}
-  {% endif %}
+  {% assign stars_filtered_repos = site.github.public_repositories | sort: 'stargazers_count', 'last' | reverse %}
 
-  {% if site.projects.exclude.forks %}
-    {% assign filtered_repos = site.github.public_repositories | where:'fork', false | sort: sort_order | reverse %}
-  {% else %}
-    {% assign filtered_repos = site.github.public_repositories | sort: sort_order | reverse %}
-  {% endif %}
-
-  {% for repository in filtered_repos | limit: site.projects.limit %}
+  {% for repository in stars_filtered_repos | limit: site.projects.stars_limit %}
     {% unless site.projects.exclude.projects contains repository.name %}
       <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
         {% include repo-card.html %}
       </div>
     {% endunless %}
+  {% endfor %}
+</div>
+
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Recent Updates</h2>
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories pushed recently</p>
+<div class="d-sm-flex flex-wrap gutter-condensed mb-4">
+  {% assign pushed_filtered_repos = site.github.public_repositories | sort: 'pushed_at' | reverse %}
+
+  {% for repository in pushed_filtered_repos | limit: site.projects.pushed_limit %}
+  {% unless site.projects.exclude.projects contains repository.name %}
+    <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+      {% include repo-card.html %}
+    </div>
+  {% endunless %}
   {% endfor %}
 </div>
