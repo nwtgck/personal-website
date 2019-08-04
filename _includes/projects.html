@@ -34,6 +34,11 @@
 {% assign repos = site.github.public_repositories | where: 'language', 'Dockerfile' | sort: 'stargazers_count', 'last' | reverse %}
 {% include repos.html %}
 
+{% assign title = "Rust" %}
+{% assign description = "My Rust repositories" %}
+{% assign repo_limit = 6 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Rust' | where:'fork', false | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
 
 {% assign title = "Go" %}
 {% assign description = "My Go repositories" %}
