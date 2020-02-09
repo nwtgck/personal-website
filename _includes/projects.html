@@ -1,0 +1,65 @@
+{% assign title = "Popular Projects" %}
+{% assign description = "My popular GitHub repositories" %}
+{% assign repo_limit = 12 %}
+{% assign repos = site.github.public_repositories | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Recent Updates" %}
+{% assign description = "GitHub repositories pushed recently" %}
+{% assign repo_limit = 6 %}
+{% assign repos = site.github.public_repositories | sort: 'pushed_at' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Haskell" %}
+{% assign description = "My Haskell repositories" %}
+{% assign repo_limit = 6 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Haskell' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Scala" %}
+{% assign description = "My Scala repositories" %}
+{% assign repo_limit = 8 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Scala' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "TypeScript" %}
+{% assign description = "My TypeScript repositories" %}
+{% assign repo_limit = 8 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'TypeScript' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Docker" %}
+{% assign description = "My Docker repositories" %}
+{% assign repo_limit = 6 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Dockerfile' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Rust" %}
+{% assign description = "My Rust repositories" %}
+{% assign repo_limit = 6 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Rust' | where:'fork', false | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Go" %}
+{% assign description = "My Go repositories" %}
+{% assign repo_limit = 6 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Go' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Vue" %}
+{% assign description = "My Vue repositories" %}
+{% assign repo_limit = 8 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Vue' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Python" %}
+{% assign description = "My Python repositories" %}
+{% assign repo_limit = 6 %}
+{% assign repos = site.github.public_repositories | where: 'language', 'Python' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
+
+{% assign title = "Piping Server family" %}
+{% assign description = "Projects using Piping Server" %}
+{% assign repo_limit = 100 %}
+{% assign repos = site.github.public_repositories | where: 'topics', 'piping-server' | sort: 'stargazers_count', 'last' | reverse %}
+{% include repos.html %}
