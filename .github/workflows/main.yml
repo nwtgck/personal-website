@@ -4,8 +4,8 @@ on:
   pull_request:
     types: [opened, synchronize]
   schedule:
-    # Every 15 min
-    - cron:  '*/15 * * * *'
+    # Every 30 min
+    - cron:  '*/30 * * * *'
 
 jobs:
   deploy:
